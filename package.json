@@ -1,0 +1,58 @@
+{
+  "name": "diagnostic-audio",
+  "displayName": "Diagnostic Audio",
+  "description": "Announces diagnostics changes in the active editor using short audio cues.",
+  "version": "0.0.1",
+  "publisher": "diogo",
+  "engines": {
+    "vscode": "^1.115.0"
+  },
+  "categories": [
+    "Accessibility",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "diagnosticAudio.testSound",
+        "title": "Diagnostic Audio: Test Sound"
+      }
+    ],
+    "configuration": {
+      "title": "Diagnostic Audio",
+      "properties": {
+        "diagnosticAudio.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable automatic audio announcements for diagnostic changes."
+        },
+        "diagnosticAudio.volume": {
+          "type": "number",
+          "default": 1,
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Volume multiplier applied to the local sound player."
+        },
+        "diagnosticAudio.debounceMs": {
+          "type": "number",
+          "default": 400,
+          "minimum": 0,
+          "description": "Delay in milliseconds before diagnostic changes are announced."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.5",
+    "@types/vscode": "^1.115.0",
+    "typescript": "^5.6.2"
+  }
+}
