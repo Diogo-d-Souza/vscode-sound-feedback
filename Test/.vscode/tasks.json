@@ -1,0 +1,125 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "compile",
+      "group": "build",
+      "problemMatcher": "$tsc",
+      "label": "npm: compile"
+    },
+    {
+      "label": "T01 - Inserir novo erro",
+      "type": "process",
+      "command": "node",
+      "args": ["${workspaceFolder}/diagnostic-test.js", "t01"],
+      "problemMatcher": {
+        "owner": "diagnostic-audio-test",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+): (error|warning): (.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    },
+    {
+      "label": "T02 - Corrigir o erro existente",
+      "type": "process",
+      "command": "node",
+      "args": ["${workspaceFolder}/diagnostic-test.js", "t02"],
+      "problemMatcher": {
+        "owner": "diagnostic-audio-test",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+): (error|warning): (.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    },
+    {
+      "label": "T03 - Inserir novo warning",
+      "type": "process",
+      "command": "node",
+      "args": ["${workspaceFolder}/diagnostic-test.js", "t03"],
+      "problemMatcher": {
+        "owner": "diagnostic-audio-test",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+): (error|warning): (.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    },
+    {
+      "label": "T04 - Corrigir o warning",
+      "type": "process",
+      "command": "node",
+      "args": ["${workspaceFolder}/diagnostic-test.js", "t04"],
+      "problemMatcher": {
+        "owner": "diagnostic-audio-test",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+): (error|warning): (.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    },
+    {
+      "label": "T05 - Vários erros quase simultâneos",
+      "type": "process",
+      "command": "node",
+      "args": ["${workspaceFolder}/diagnostic-test.js", "t05"],
+      "problemMatcher": {
+        "owner": "diagnostic-audio-test",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+): (error|warning): (.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    },
+    {
+      "label": "T08 - Diagnóstico em arquivo inativo",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/diagnostic-test.js",
+        "t08",
+        "--file",
+        "diagnostic-inactive.js"
+      ],
+      "problemMatcher": {
+        "owner": "diagnostic-audio-test",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+): (error|warning): (.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    }
+  ]
+}
